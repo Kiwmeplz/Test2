@@ -21,7 +21,7 @@ void sort(float x[], int N){
 int main(){
 string info[20];
 float number[20];
-int i,j=1,N=sizeof(info)/sizeof(info[0]);
+int i,j=1,k=1,N=sizeof(info)/sizeof(info[0]);
 ifstream source("score1.txt");
 ofstream dest("rank.txt");
 string line;
@@ -35,10 +35,13 @@ for(int i=0;i<N;i++){
 for(int i=N-1;i>=0;i--){
 	sort(number,N);
 	dest<<number[i]<<" = ";
-	if(number[i]==number[i+1]) {
-	dest<<j-1<<"\n";}
-	else {
-	dest<<j<<"\n";}
+	if(number[i]==number[i+1]){
+	dest<<k<<"\n";
+	}
+	else{
+	dest<<j<<"\n";
+	k=j;
+	}
 	j++;
 }
 dest.close();
